@@ -1,0 +1,10 @@
+
+
+Inicio.        Noticias.         Categorias.          Contactos.           Acerca de….     Inicio de Sesion
+
+
+Acerca de(Alfredo)
+Inicio de Sesion, Index(Jose)
+Noticias (Pablo)
+Contactos(Anto)
+Fondo de Pagina y icono/imagen de usuario y noticia por defecto(Isa)
