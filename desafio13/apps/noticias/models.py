@@ -14,7 +14,7 @@ class Noticia(models.Model):
     autor = models.CharField(max_length=20, null=False)
     descripcion = models.TextField()
     published = models.DateTimeField(default=timezone.now)
-    imagen = models.ImageField(null=True, blank=True, upload_to='noticias', default='noticias/notice_default.png')
+    imagen = models.ImageField(null=True, blank=True, upload_to='noticias', default='static/img/notidefault.png')
     categoria = models.ForeignKey(Categoria, on_delete=models.SET_NULL, null=True)
 
     def __str__(self):

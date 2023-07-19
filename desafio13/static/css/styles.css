@@ -17,6 +17,11 @@
     background-color: rgba(89, 103, 108, 0.79);
 }
 
+body{background-image: url(fondo1.png);
+    background-position: center;
+    background-size: cover;
+}
+
 .imagen_fondo {
     position: relative;
     z-index: -1;
