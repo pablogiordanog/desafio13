@@ -1,14 +1,38 @@
-{% extends 'base.html' %}
 {% load static %}
+<!DOCTYPE html>
+<html lang="es">
 
-{% block title %}
-<title>Inicio</title>
-{% endblock %}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NOTICIA</title>
+    <link rel="stylesheet" href="{% static 'css/estilos.css' %}">
+</head>
 
-{% block navigation %}
-{% include 'navigation.html' %}
-{% endblock %}
+<body>
 
-{% block content %}
-<a href="{% url 'list' %}">Ir a Noticias</a>
-{% endblock %}
+    <header>
+        <div class="container__header">
+            <div class="logo">
+                <img src="" alt="">
+            </div>
+            <div class="menu">
+                <nav>
+                    <ul>
+                        <li><a href="#">INICIO</a></li>
+                        <li><a href="{% url 'list' %}">NOTICIAS</a></li>
+                        <li><a href="#">CATEGORIAS</a></li>
+                        <li><a href="#">CONTACTOS</a></li>
+                        <li><a href="#">ACERCA DE...</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="register">
+                <input type="submit" value="INICIAR SESION">
+            </div>
+        </div>
+    </header>
+
+</body>
+</html>
