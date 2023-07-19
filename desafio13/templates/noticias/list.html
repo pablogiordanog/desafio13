@@ -1,13 +1,50 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lista de Noticias</title>
-</head>
-<body>
-    <a href="{% url 'index' %}">Ir a Menu Principal</a>
-    <br>
-    <a href="{% url 'add_notice' %}">Nueva Noticia</a>
-</body>
-</html>
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+<title>Noticias</title>
+{% endblock %}
+
+{% block navigation %}
+{% include 'navigation.html' %}
+{% endblock %}
+
+{% block content %}
+
+<section data-bs-version="5.1" class="timeline3 cid-tf4QbpyVP7" id="timeline3-o">
+    {% if noticias %}
+    <div class="container-fluid" style="margin-top: 2%">
+        <div class="mbr-section-head">
+            <h3 class="mbr-section-title mbr-fonts-style align-center mb-0 display-2" style="text-align: center;">
+                <strong>Noticias</strong>
+                <a href="{% url 'add_notice' %}">Nueva Noticia</a>
+            </h3>
+        </div>
+        <div class="row" style="margin-bottom: 2%;">
+            {% for n in noticias %}
+            <div class="col-md-4 mb-3">
+                <div class="card" style="text-align: center;">
+                    <div class="card-img-top" style="display: block; width: 70%; margin: auto;">
+                        <img src="{{ n.imagen.url }}" class="card-img-top w-50" alt="{{n.titulo}}">
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">{{n.titulo}}</h5>
+                        <p style='text-align: center;' class="mbr-timeline-date "><small
+                                class="text-body-secondary">{{n.published}}</small></p>
+                        <p class="card-text">{{n.descripcion}}</p>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">Categoria: {{n.categoria}}</li>
+                        <li class="list-group-item">Autor: {{n.autor}}</li>
+                    </ul>
+                    <div class="card-body">
+                        <p><a href="#" class="btn btn-primary"
+                                style="font-size: small;">Leer
+                                más</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+            {% endif %}
+</section>
+{% endblock %}
