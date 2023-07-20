@@ -1,20 +1,15 @@
 from django.db import models
 from django.utils import timezone
 
-# Create your models here.
-class Categoria(models.Model):
-    nombre = models.CharField(max_length=20, null=False)
+from apps.categorias.models import Categoria
 
-    def __str__(self) -> str:
-        return self.nombre
-    
-    
+# Create your models here.
 class Noticia(models.Model):
     titulo = models.CharField(max_length=50, null=False)
     autor = models.CharField(max_length=20, null=False)
     descripcion = models.TextField()
     published = models.DateTimeField(default=timezone.now)
-    imagen = models.ImageField(null=True, blank=True, upload_to='noticias', default='apps/noticias/static/img/notidefault.png')
+    imagen = models.ImageField(null=True, blank=True, upload_to='noticias', default='noticias/notice_default.png')
     categoria = models.ForeignKey(Categoria, on_delete=models.SET_NULL, null=True)
 
     def __str__(self):

@@ -1,3 +1,85 @@
+<li><a class="dropdown-item" href="{% url 'apps.libros:modificar_libro' libro.pk %}">Modificar libro</a></li>
+<li><a class="dropdown-item" href="{% url 'apps.libros:eliminar_libro' libro.pk %}">Eliminar libro</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+<title>{{notice.titulo}}</title>
+{%endblock %}
+
+{% block navegation %}
+{% include 'navegation.html' %}
+{% endblock %}
+
+{% block content %}
+<div class="dropdown">
+    <button class="btn btn-outline-secondary dropdown-toggle " type="button" id="dropdownMenuButton1"
+        data-bs-toggle="dropdown" aria-expanded="false">Administrar</button>
+    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+        <li><a class="dropdown-item" href="#">Modificar Noticia</a></li>
+        <li><a class="dropdown-item" href="#">Eliminar Noticia</a></li>
+    </ul>
+    <section data-bs-version="5.1" class="image1 cid-tf6nPGwDQN" id="image1-q">
+        {{form.as_p}}
+        {{form.media}}
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-12 col-lg-6">
+                    <div class="image-wrapper">
+                        <img src="{{ notice.imagen.url }}" class="d-block w-100">
+                        <p style='text-align: center;' class="mbr-timeline-date "><small
+                                class="text-body-secondary">{{notice.published}}</small></p>
+                    </div>
+                </div>
+                <div class="col-12 col-lg">
+                    <div class="text-wrapper">
+                        <h2 class="mbr-section-title mbr-fonts-style mb-3 display-5"><strong>{{notice.titulo}}</strong>
+                        </h2>
+                        <h4 class="mbr-section-title mbr-fonts-style mb-3 "><i>{{notice.autor}}</i></h4>
+                        <p class="mbr-text mbr-fonts-style display-7">{{notice.descripcion}}</p>
+                    </div>
+                </div>
+            </div>å
+        </div>
+
+    </section>
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 {% extends 'base.html' %}
 {% load static %}
 
@@ -67,3 +149,25 @@
             {% endfor %}
 </section>
 {% endblock %}
+
+
+
+
+
+
+<div class="row" style="margin-bottom: 2%;">
+                <div class="col-md-4 mb-3">
+                    <div class="card" style="text-align: center;">
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">Categoria: {{c.nombre}}</li>
+                        </ul>
+                        <div class="card-body">
+                            <p><a href="{% url 'apps.categorias:update_category' c.id %}" class="btn btn-primary"
+                                    style="font-size: small;">Actualizar</a>
+                            </p>        
+                            <p><a href="{% url 'apps.categorias:delete_category' c.id %}" class="btn btn-primary"
+                                        style="font-size: small;">Eliminar</a>       
+                            </p>   
+                        </div>
+                    </div>
+            </div>
