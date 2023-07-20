@@ -20,11 +20,11 @@
             <div class="menu">
                 <nav>
                     <ul>
-                        <li><a href="#">INICIO</a></li>
+                        <li><a href="{% url 'index' %}">INICIO</a></li>
                         <li><a href="{% url 'apps.noticias:list' %}">NOTICIAS</a></li>
                         <li><a href="{% url 'apps.categorias:list' %}">CATEGORIAS</a></li>
                         <li><a href="#">CONTACTOS</a></li>
-                        <li><a href="#">ACERCA DE...</a></li>
+                        <li><a href="{% url 'acerca_de' %}">ACERCA DE...</a></li>
                     </ul>
                 </nav>
             </div>

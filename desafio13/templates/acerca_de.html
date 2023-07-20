@@ -1,9 +1,11 @@
-{% extends "base.html %}
 
-<head>
+{% load static %}
 
-  <title>Fondo Animado</title>
-  <link rel="stylesheet" href="estilo.css">
+<head>  
+  {% block title %}
+  <title>Acerca de...</title>
+  {% endblock%}
+  <link rel="stylesheet" href="{% static 'css/estilo2.css' %}">
   <style>
     .texto {
       text-align: center;
@@ -18,7 +20,6 @@
       margin-left: 350px;
       margin-top: 40px; 
       line-height: 2.0;
-
     }
   </style>
 </head>
