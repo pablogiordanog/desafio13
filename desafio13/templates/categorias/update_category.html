@@ -13,16 +13,22 @@
                 <form>
                     <div class="con">
                         <header class="head-form">
-                            <h2>Agregar noticias</h2>
-                            <p>Ingrese los datos y presione el botón de guardar, luego podrá ver su noticia en la sección
-                                noticias:</p>
+                            <h2>Actualizar categorias</h2>
+                            <p>Actualice los datos y presione el botón de Actualizar, luego podrá ver su categoria en la sección
+                                categorias:</p>
                         </header>
                         <div>
                             {{form.as_p}}
-                            {{form.media}}
+                            
+                            {% if form.errors %}
+                            {% for e in form.erros %}
+                            {{e}}
+                            {% endfor %}
+                            {% endif %}
+                            
                             <input class="btn btn-outline-secondary" type="submit" data-bs-toggle="modal"
-                                style="text-align: center;" data-bs-target="#exampleModal" value="Guardar noticia" />
-                                <a class="btn btn-outline-secondary" href="{% url 'apps.noticias:list' %}">Volver</a>
+                                style="text-align: center;" data-bs-target="#exampleModal" value="Actualizar categoria" />
+                                <a class="btn btn-outline-secondary" href="{% url 'apps.categorias:list' %}">Volver</a>
                             
                                 <!-- Modal -->
                             <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
@@ -30,15 +36,15 @@
                                 <div class="modal-dialog">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h5 class="modal-title" id="exampleModalLabel">No Se Cargo Noticia</h5>
+                                            <h5 class="modal-title" id="exampleModalLabel">No Se Actualizo la Categoria</h5>
                                             <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                 aria-label="Close"></button>
                                         </div>
                                         <div class="modal-body">
-                                            Su noticia NO fue cargada!
+                                            Su categoria NO fue Actualizada!
                                         </div>
                                         <div class="modal-footer">
-                                            <a class="btn btn-outline-secondary" href="{% url 'apps.noticias:list' %}">Volver la Lista de Noticias</a>
+                                            <a class="btn btn-outline-secondary" href="{% url 'apps.categorias:list' %}">Volver la Lista de Categorias</a>
                                         </div>
                                     </div>
                                 </div>

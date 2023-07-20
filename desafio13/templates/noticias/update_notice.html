@@ -13,15 +13,22 @@
                 <form>
                     <div class="con">
                         <header class="head-form">
-                            <h2>Agregar noticias</h2>
-                            <p>Ingrese los datos y presione el botón de guardar, luego podrá ver su noticia en la sección
+                            <h2>Actualizar noticias</h2>
+                            <p>Actualice los datos y presione el botón de Actualizar, luego podrá ver su noticia en la sección
                                 noticias:</p>
                         </header>
                         <div>
                             {{form.as_p}}
                             {{form.media}}
+
+                            {% if form.errors %}
+                            {% for e in form.erros %}
+                            {e}
+                            {% endfor %}
+                            {% endif %}
+                            
                             <input class="btn btn-outline-secondary" type="submit" data-bs-toggle="modal"
-                                style="text-align: center;" data-bs-target="#exampleModal" value="Guardar noticia" />
+                                style="text-align: center;" data-bs-target="#exampleModal" value="Actualizar noticia" />
                                 <a class="btn btn-outline-secondary" href="{% url 'apps.noticias:list' %}">Volver</a>
                             
                                 <!-- Modal -->
@@ -30,12 +37,12 @@
                                 <div class="modal-dialog">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h5 class="modal-title" id="exampleModalLabel">No Se Cargo Noticia</h5>
+                                            <h5 class="modal-title" id="exampleModalLabel">No Se Actualizo la Noticia</h5>
                                             <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                 aria-label="Close"></button>
                                         </div>
                                         <div class="modal-body">
-                                            Su noticia NO fue cargada!
+                                            Su noticia NO fue Actualizada!
                                         </div>
                                         <div class="modal-footer">
                                             <a class="btn btn-outline-secondary" href="{% url 'apps.noticias:list' %}">Volver la Lista de Noticias</a>

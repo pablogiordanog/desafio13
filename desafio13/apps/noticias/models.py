@@ -1,14 +1,9 @@
 from django.db import models
 from django.utils import timezone
 
-# Create your models here.
-class Categoria(models.Model):
-    nombre = models.CharField(max_length=20, null=False)
+from apps.categorias.models import Categoria
 
-    def __str__(self) -> str:
-        return self.nombre
-    
-    
+# Create your models here.
 class Noticia(models.Model):
     titulo = models.CharField(max_length=50, null=False)
     autor = models.CharField(max_length=20, null=False)
